@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+[user]
+	name = Vlad Dogaru
+	email = ddvlad@rosedu.org
+[push]
+	default = current
+[core]
+	excludesfile = ~/.gitignore

@@ -1,0 +1,18 @@
+*.class
+*.o
+.*.swp
+
+# Python compiled bytecodes
+*.pyc
+*.pyo
+
+# Latex-specific, might not be a good idea to always ignore pdfs
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.pdf
+
+# vim: set ft=conf:

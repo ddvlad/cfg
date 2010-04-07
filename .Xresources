@@ -1,0 +1,6 @@
+UXTerm*metaSendsEscape: true
+xterm*font: -*-fixed-medium-*-*-*-18-*-*-*-*-*-*-*
+
+!URxvt.font: -*-fixed-medium-*-*-*-18-*-*-*-*-*-*-*
+URxvt.font: xft:Bitstream Vera Sans Mono:pixelsize=15
+URxvt.scrollBar: off

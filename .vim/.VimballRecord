@@ -1,0 +1,1 @@
+manpageview.vba: call delete('/home/vlad/.vim/plugin/manpageviewPlugin.vim')|call delete('/home/vlad/.vim/autoload/manpageview.vim')|call delete('/home/vlad/.vim/syntax/man.vim')|call delete('/home/vlad/.vim/syntax/mankey.vim')|call delete('/home/vlad/.vim/syntax/info.vim')|call delete('/home/vlad/.vim/syntax/manphp.vim')|call delete('/home/vlad/.vim/doc/manpageview.txt')
