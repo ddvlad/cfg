@@ -79,3 +79,5 @@ colorscheme zenburn
 
 " Mark tabs and spaces
 set list listchars=tab:»\ ,trail:·,extends:»,precedes:«
+
+map Q gq
