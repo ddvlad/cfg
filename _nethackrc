@@ -1,0 +1,48 @@
+# nethackrc, useful for playing the impossible game :-)
+# Most useful when coupled with a white-on-black, large font gnome-terminal
+# Mostly set by reading http://nethack.wikia.com/wiki/Nethackrc
+# April 28th 2010
+
+# btw, nethack is retarded for not properly recognising comments.
+
+# I haven't found a GUI to please me yet
+OPTIONS=windowtype:tty
+# Visually distinguish pet
+OPTIONS=hilite_pet
+# Remember inventory letters of dropped items
+OPTIONS=fixinv
+# Don't attack pet unless we really want it
+OPTIONS=safe_pet
+# Group object in inventory
+OPTIONS=sortpack
+# Print ASCII tombstone
+OPTIONS=tombstone
+# Use color
+OPTIONS=color
+# Verbosity breeds roleplaying
+OPTIONS=verbose
+# Funny fruit name
+OPTIONS=fruit:0xC0FFEE
+# Don't pick up random crap in the dungeon
+OPTIONS=noautopickup
+OPTIONS=name:Vlad
+OPTIONS=dogname:Azorikah
+OPTIONS=catname:Spotty
+
+# Ripped off from somewhere, not sure where
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" uncursed "=yellow
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+
+# What to show at end of game
+OPTIONS=confirm,disclose:+i +a +v +g +c
+# Experience (for levelling)
+OPTIONS=showexp
+# Visually distinguish --More-- prompt
+OPTIONS=standout
+# Show how long we've been playing
+OPTIONS=time
