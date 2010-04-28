@@ -88,7 +88,6 @@ alias l='ls -CF'
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 alias ss="sudo su -"
-alias cal="cal -m"
 alias vip="vim -p"
 alias info="pinfo"
 alias df="pydf"
