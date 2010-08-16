@@ -46,6 +46,7 @@ syn match   wikiLine        "^----$"
 syn region  wikiLink        start=+\[\[+hs=s+2 end=+\]\]+he=e-2
 syn match   wikiList        "^[*#]* "
 syn region  wikiCurly       start="{\{3\}" end="}\{3\}"
+syn region  wikiApos       start="'\{2\}" end="'\{2\}"
 syn region  wikiHead        start="^=" end="$"
 "syn region  wikiSubhead     start="^== " end="$"
 "TODO add syntax for tables
@@ -68,6 +69,7 @@ if version >= 508 || !exists("did_wiki_syn_inits")
   endif
   
 WikiHiLink wikiCurly       Type
+WikiHiLink wikiApos        Type
 WikiHiLink wikiHead        Statement 
 "  WikiHiLink wikiSubhead     PreProc
 WikiHiLink wikiList        String

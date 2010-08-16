@@ -13,6 +13,8 @@ autocmd FileType python		setlocal autoindent expandtab sts=4 sw=4 tw=78
 autocmd FileType haskell	setlocal tw=72 sw=2 sts=2 et
 autocmd FileType tex		setlocal tw=72 sw=2 sts=2 ai
 autocmd FileType tex		so ~/.vim/latex-abbrevs.vim
+autocmd FileType creole		setlocal tw=0 fo=t wrap linebreak
+autocmd FileType creole		so ~/.vim/creole-abbrevs.vim
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
