@@ -79,15 +79,37 @@ endif
 " More tabs -- we have enough memory.
 set tabpagemax=20
 
-" F1..F4 take me to the corresponding tabs
-nmap <F1> 1gt
-nmap <F2> 2gt
-nmap <F3> 3gt
-nmap <F4> 4gt
-
 colorscheme zenburn
 
 " Mark tabs and spaces
 set list listchars=tab:»\ ,trail:·,extends:»,precedes:«
 
 map Q gq
+
+" Ripped off from Bee on vim_use mailing list
+" toggle invisibles
+nmap <F1> :setlocal list! list?<cr>
+imap <F1> <C-O><F1>
+vmap <F1> <Esc><F1>gv
+
+" toggle line wrap
+nmap <F2> :setlocal wrap! wrap?<cr>
+imap <F2> <C-O><F2>
+vmap <F2> <Esc><F2>gv
+
+" toggle line numbers
+highlight LineNr NONE ctermfg=3DGreen
+nmap <F3> :setlocal number! number?<cr>
+imap <F3> <C-O><F3>
+vmap <F3> <Esc><F3>gv
+
+" toggle highlight search (global)
+set incsearch  nohlsearch
+highlight Search NONE ctermfg=3DMagenta
+nmap <F4> :set hlsearch! hlsearch?<cr>
+imap <F4> <C-O><F4>
+vmap <F4> <Esc><F4>gv
+
+" Space as PageDown like web browser
+nmap <Space> <PageDown>
+" /ripoff
