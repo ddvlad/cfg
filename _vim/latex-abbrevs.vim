@@ -1,5 +1,3 @@
-imap \f{ \file{
-imap \c{ \cmd{
 imap \t{ \texttt{
 imap \b{ \textbf{
 imap \it{ \textit{
@@ -18,3 +16,6 @@ imap \q{ \end{qlist}
 
 imap \P{ \begin{parts}
 imap \p{ \end{parts}
+
+imap \F{ \begin{frame}
+imap \f{ \end{frame}

@@ -11,9 +11,8 @@ autocmd FileType java		setlocal tw=78 cin foldmethod=marker
 autocmd FileType c,cpp		setlocal tw=72 cindent noexpandtab
 autocmd FileType python		setlocal autoindent expandtab sts=4 sw=4 tw=78
 autocmd FileType haskell	setlocal tw=72 sw=2 sts=2 et
-autocmd FileType tex		 setlocal tw=72 sw=2 sts=2 ai
-autocmd FileType tex		 so ~/.vim/abbrevs.vim
-autocmd FileType php		 setlocal tw=72 cindent fo=croql
+autocmd FileType tex		setlocal tw=72 sw=2 sts=2 ai
+autocmd FileType tex		so ~/.vim/latex-abbrevs.vim
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
