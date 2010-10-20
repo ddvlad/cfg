@@ -92,3 +92,6 @@ map Q gq
 nmap <Space> <PageDown>
 vmap <Space> <PageDown>
 " /ripoff
+
+" Highlight current line
+set cursorline
