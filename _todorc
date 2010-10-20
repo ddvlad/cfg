@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<todo version="0.1.20">
+    <note priority="veryhigh" time="1286362087" done="1286365092">
+        Testare tema0 USO
+    </note>
+    <note priority="veryhigh" time="1286365118" done="1286885385">
+        Grupe an 1 pentru catalog
+    </note>
+    <note priority="veryhigh" time="1286714907" done="1286885379">
+        Review tema RL
+    </note>
+    <note priority="veryhigh" time="1286965956" done="1286985208">
+        Investigate Mihai Ciovîrtă code (USO)
+    </note>
+    <note priority="high" time="1286361705" done="1286697687">
+        Prezentare curs LPIC
+    </note>
+    <note priority="high" time="1286377353" done="1286521296">
+        Foi de prezență USO
+    </note>
+    <note priority="high" time="1286887964" done="1287309053">
+        Link itassistant videos to US labs
+    </note>
+    <note priority="medium" time="1286362097" done="1286885379">
+        Publicare tema0 USO
+    </note>
+    <note priority="veryhigh" time="1286455384">
+        Sistem de mirroring offline pentru laboratoarele de USO
+    </note>
+    <note priority="veryhigh" time="1287562189" done="1287592054">
+        CV pentru uso/rl
+    </note>
+    <note priority="low" time="1286016431">
+        Format LaTeX pentru SO
+    </note>
+    <note priority="verylow" time="1287388972">
+        Do something about my crap site
+    </note>
+</todo>
