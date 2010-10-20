@@ -90,4 +90,5 @@ map Q gq
 " Ripped off from Bee on vim_use mailing list
 " Space as PageDown like web browser
 nmap <Space> <PageDown>
+vmap <Space> <PageDown>
 " /ripoff
