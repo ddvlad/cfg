@@ -1,0 +1,17 @@
+Config { font = "xft:Inconsolata-14-regular"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 90
+       , commands = [ Run Weather "LRBS" ["-t"," <tempC>C","-L","10","-H","28","--normal","green","--high","red","--low","lightblue"] 3600
+                    , Run MultiCpu ["-t","<total0>,<total1>","-L","5","-H","50","--normal","green","--high","red"] 10
+                    , Run Network "eth0" ["-t","<dev>: R<rx> T<tx>"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %eth0% | %multicpu% | %memory% | %swap% | <fc=#ee9a00>%date%</fc> | %LRBS%"
+       , lowerOnStart = False
+       }
