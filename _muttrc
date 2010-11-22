@@ -1,0 +1,55 @@
+# Basics
+set realname = "Vlad Dogaru"
+set from = "ddvlad@rosedu.org"
+set use_from = yes
+set envelope_from = yes
+
+# Use IMAP, not local
+# Ripped off from <http://mutt.sourceforge.net/imap/>
+set spoolfile = imaps://swarm.cs.pub.ro/INBOX
+set folder = imaps://swarm.cs.pub.ro/INBOX
+
+set timeout = 60
+set mail_check = 60
+set imap_check_subscribed = yes
+set imap_user = ddvlad
+
+set query_command = "abook --mutt-query '%s'"
+
+# Save sent mail and drafts on the server
+set record = =Sent
+set postponed = =Drafts
+
+# Sort the sidebar
+set sidebar_sort = yes
+
+# GPG-specific. Ripped off from <http://codesorcery.net/old/mutt/mutt-gnupg-howto>
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+set pgp_autosign=no
+set pgp_sign_as=0xB1DF4A94
+set pgp_replyencrypt=yes
+set pgp_timeout=1800
+set pgp_good_sign="^gpg: Good signature from"
+
+# Separate alias file and source it. Ripped off from <http://wiki.mutt.org/?MuttGuide/Aliases>
+set alias_file = ~/.mutt/aliases
+source $alias_file
+set sort_alias = alias
+
+# Other email addresses of mine
+alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , ddvlad@gmail\.com
+
+# Add sender to abook
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+
+# Taken from Linux docs. Skip latin-1 as charset
+set send_charset="us-ascii:utf-8"
