@@ -49,10 +49,14 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\/\1/'
+}
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]λ\[\033[00m\] \[\033[01;34m\]\w\[\033[32m\]$(parse_git_branch) \[\033[00m\]\$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+	PS1='${debian_chroot:+($debian_chroot)}λ \w$(parse_git_branch)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -91,9 +95,11 @@ alias ss="sudo su -"
 alias vip="vim -p"
 alias info="pinfo"
 alias df="pydf"
+alias go="gnome-open"
 
 # SSH stuff
 alias sshs='ssh ddvlad@swarm.cs.pub.ro'
+alias sshrs='ssh root@swarm.cs.pub.ro'
 alias sshe='ssh so@elf.cs.pub.ro'
 
 # Ripped off from Cosmin Ratiu, un SO list; added 30 Jun 2009
@@ -105,7 +111,7 @@ function gen-cscope
 # Required for vim zenburn colorscheme
 export TERM=xterm-256color
 
-export CDPATH="~/school/2009-2010"
+export CDPATH="~/school/"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -113,3 +119,9 @@ export CDPATH="~/school/2009-2010"
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+export PATH=~/bin:$PATH
+
+# Change dir to home; I keep getting bitten by gnome-terminal trying to open a
+# new tab in the same directory as the old one.
+cd $HOME
