@@ -11,11 +11,12 @@ autocmd FileType java		setlocal tw=78 cin foldmethod=marker
 autocmd FileType c,cpp		setlocal tw=72 cindent noexpandtab
 autocmd FileType python		setlocal autoindent expandtab sts=4 sw=4 tw=78
 autocmd FileType haskell	setlocal tw=72 sw=2 sts=2 et
-autocmd FileType tex		setlocal tw=72 sw=2 sts=2 ai
+autocmd FileType tex		setlocal tw=72 sw=2 sts=2 ai et
 autocmd FileType tex		so ~/.vim/latex-abbrevs.vim
 " 'linebreak' won't work without 'nolist'
 autocmd FileType creole		setlocal tw=0 fo=t wrap nolist linebreak
 autocmd FileType creole		so ~/.vim/creole-abbrevs.vim
+autocmd FileType mail		setlocal tw=72
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
