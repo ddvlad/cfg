@@ -8,7 +8,9 @@ xsetroot -solid black
 
 # Set up an icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
---expand true --width 10 --transparent true --alpha 255 --height 24 &
+--expand true --width 10 --transparent true --alpha 0 --height 24 --tint 0x000000 &
+
+eval `ssh-agent -s`
 
 # Fire up apps
 #pidgin &
