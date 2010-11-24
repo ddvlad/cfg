@@ -96,6 +96,7 @@ alias vip="vim -p"
 alias info="pinfo"
 alias df="pydf"
 alias go="gnome-open"
+alias todo="vi ~/todo/todo.txt"
 
 # SSH stuff
 alias sshs='ssh ddvlad@swarm.cs.pub.ro'

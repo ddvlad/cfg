@@ -3,6 +3,8 @@
 " Add modeline functionality -- it's disabled by default on some distros
 set modeline
 
+filetype plugin on
+
 " Mapping from usenet.
 imap jj <Esc>
 
