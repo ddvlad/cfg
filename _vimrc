@@ -98,3 +98,6 @@ vmap <Space> <PageDown>
 
 " Highlight current line
 "set cursorline
+
+" Open new vertical splits to the right of current one.
+set splitright
