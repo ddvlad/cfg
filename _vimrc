@@ -83,7 +83,7 @@ endif
 " More tabs -- we have enough memory.
 set tabpagemax=20
 
-colorscheme zenburn
+"colorscheme zenburn
 
 " Mark tabs and spaces
 set list listchars=tab:»\ ,trail:·,extends:»,precedes:«
@@ -97,4 +97,4 @@ vmap <Space> <PageDown>
 " /ripoff
 
 " Highlight current line
-set cursorline
+"set cursorline
