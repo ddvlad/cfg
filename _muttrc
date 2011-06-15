@@ -6,22 +6,45 @@ set envelope_from = yes
 
 # Use IMAP, not local
 # Ripped off from <http://mutt.sourceforge.net/imap/>
-set spoolfile = imaps://swarm.cs.pub.ro/INBOX
-set folder = imaps://swarm.cs.pub.ro/INBOX
-
+#set spoolfile = imaps://swarm.cs.pub.ro/INBOX
+#set folder = imaps://swarm.cs.pub.ro/INBOX
+#
 set timeout = 60
 set mail_check = 60
-set imap_check_subscribed = yes
-set imap_user = ddvlad
+#set imap_check_subscribed = yes
+#set imap_user = ddvlad
 
-set query_command = "abook --mutt-query '%s'"
+set mbox_type = Maildir
+set folder = $HOME/Mail/rosedu
+set spoolfile = "=INBOX"
+mailboxes =INBOX =linux =hadoop =archive =Sent =Drafts =Spam =mu-search
+set sendmail = "msmtp-enqueue.sh -a swarm.cs.pub.ro"
+set send_charset="us-ascii:utf-8"
 
-# Save sent mail and drafts on the server
 set record = =Sent
 set postponed = =Drafts
+set query_command = "lbdbq '%s'"
 
-# Sort the sidebar
-set sidebar_sort = yes
+# Mairix search:
+macro index,pager "<esc>s" "<shell-escape>mu find --clearlinks --linksdir ~/Mail/rosedu/mu-search --maildir ~/Mail " "run a mu search"
+macro index,pager "S" "<change-folder-readonly>=mu-search\n" "switch to mu results folder"
+macro index,pager "i" "<change-folder>=INBOX\n" "back to inbox"
+
+# use 'a' to archive the message
+macro index,pager a "s=archive<enter>"
+set confirmappend = no
+
+# Other email addresses of mine
+alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , ddvlad@gmail\.com
+
+color index brightyellow red ~F
+color header brightred black "^subject: *"
+
+set nomark_old
+set wrap = 100
+set nomarkers
+set include=yes
+set pager_index_lines=7
 
 # GPG-specific. Ripped off from <http://codesorcery.net/old/mutt/mutt-gnupg-howto>
 set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
@@ -40,16 +63,4 @@ set pgp_replyencrypt=yes
 set pgp_timeout=1800
 set pgp_good_sign="^gpg: Good signature from"
 
-# Separate alias file and source it. Ripped off from <http://wiki.mutt.org/?MuttGuide/Aliases>
-set alias_file = ~/.mutt/aliases
-source $alias_file
-set sort_alias = alias
-
-# Other email addresses of mine
-alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , ddvlad@gmail\.com
-
-# Add sender to abook
-macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
-
-# Taken from Linux docs. Skip latin-1 as charset
-set send_charset="us-ascii:utf-8"
+set header_cache=~/.muttcache

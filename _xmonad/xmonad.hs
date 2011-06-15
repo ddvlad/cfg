@@ -8,9 +8,14 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
+
 myManageHook = composeAll
     [ className =? "Gimp"     --> doFloat
     ]
+
+modm = mod4Mask
 
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar /home/ddvlad/.xmobarrc"
@@ -21,10 +26,18 @@ main = do
                 { ppOutput = hPutStrLn xmproc
                 , ppTitle = xmobarColor "green" "" . shorten 50
                 }
-        , modMask = mod4Mask
+        , modMask = modm
         } `additionalKeys`
-        [ ((mod4Mask .|. shiftMask, xK_z),
+        [ ((modm .|. shiftMask, xK_z),
             spawn "gnome-screensaver-command --lock")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
+        -- CycleWS
+        , ((modm, xK_Right), nextWS)
+        , ((modm, xK_Left), prevWS)
+        , ((modm .|. shiftMask, xK_Right), shiftToNext >> nextWS)
+        , ((modm .|. shiftMask, xK_Left), shiftToPrev >> prevWS)
+        , ((modm, xK_g), goToSelected defaultGSConfig)
         ]
+
+-- vim: set ai:

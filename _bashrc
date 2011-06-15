@@ -91,17 +91,16 @@ alias l='ls -CF'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-alias ss="sudo su -"
-alias vip="vim -p"
-alias info="pinfo"
 alias df="pydf"
-alias go="gnome-open"
-alias todo="vi ~/todo/todo.txt"
+alias go="xdg-open"
+alias todo="vi ~/.todo/todo.txt"
 
 # SSH stuff
 alias sshs='ssh ddvlad@swarm.cs.pub.ro'
 alias sshrs='ssh root@swarm.cs.pub.ro'
 alias sshe='ssh so@elf.cs.pub.ro'
+
+alias notify='notify-send "Job done!"'
 
 # Ripped off from Cosmin Ratiu, un SO list; added 30 Jun 2009
 function gen-cscope

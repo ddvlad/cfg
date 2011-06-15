@@ -18,7 +18,9 @@ autocmd FileType tex		so ~/.vim/latex-abbrevs.vim
 " 'linebreak' won't work without 'nolist'
 autocmd FileType creole		setlocal tw=0 fo=t wrap nolist linebreak
 autocmd FileType creole		so ~/.vim/creole-abbrevs.vim
-autocmd FileType mail		setlocal tw=72
+autocmd FileType mail		setlocal tw=72 fo=tql
+autocmd FileType lua		setlocal sts=4 sw=4 ai et
+autocmd FileType lua		setlocal sts=4 sw=4 ai et
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
@@ -27,6 +29,7 @@ autocmd BufRead,BufNewFile *.cool setlocal ft=cool
 autocmd BufRead,BufNewFile *.cl setlocal ft=cool
 autocmd BufRead,BufNewFile *.miC setlocal ft=C
 autocmd BufRead,BufNewFile *.g setlocal ft=antlr
+autocmd BufRead,BufNewFile *.rkt setlocal ft=scheme
 
 set autowrite
 
@@ -83,7 +86,7 @@ endif
 " More tabs -- we have enough memory.
 set tabpagemax=20
 
-"colorscheme zenburn
+colorscheme zenburn
 
 " Mark tabs and spaces
 set list listchars=tab:»\ ,trail:·,extends:»,precedes:«
@@ -97,7 +100,7 @@ vmap <Space> <PageDown>
 " /ripoff
 
 " Highlight current line
-"set cursorline
+set cursorline
 
 " Open new vertical splits to the right of current one.
 set splitright
