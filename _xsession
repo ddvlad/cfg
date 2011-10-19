@@ -4,17 +4,25 @@
 xrdb -merge .Xresources
 
 # Set the background color
-xsetroot -solid black
+xsetroot -solid \#3f3f3f
+
+xsetroot -cursor_name left_ptr
+setxkbmap -layout ro
 
 # Set up an icon tray
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
---expand true --width 10 --transparent true --alpha 0 --height 24 --tint 0x000000 &
+  --expand true --width 10 --transparent true --alpha 0 --height 24 \
+  --tint 0x3f3f3f &
 
 eval `ssh-agent -s`
 
 # Fire up apps
-#pidgin &
-#firefox &
+pidgin &
+firefox &
+.xmonad/actions/mutt.sh &
+gvim &
+xchat &
+
 if [ -x /usr/bin/nm-applet ]; then
 	nm-applet --sm-disable &
 fi
@@ -24,6 +32,9 @@ if [ -x /usr/bin/gnome-power-manager ]; then
 fi
 if [ -x /usr/bin/gnome-settings-daemon ]; then
 	gnome-settings-daemon &
+fi
+if [ -x /usr/bin/bluetooth-applet ]; then
+	bluetooth-applet &
 fi
 
 exec xmonad
