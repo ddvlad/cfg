@@ -33,6 +33,8 @@ autocmd BufRead,BufNewFile *.rkt setlocal ft=scheme
 
 set autowrite
 
+set dir=/tmp
+
 " Ripped off from Alexandru Mosoi
 set statusline=%<%f\ %y%h%m%r%=%-24.(0x%02B,%l/%L,%c%V%)\ %P
 set laststatus=2
@@ -104,3 +106,6 @@ set cursorline
 
 " Open new vertical splits to the right of current one.
 set splitright
+
+set hidden
+set smartcase
