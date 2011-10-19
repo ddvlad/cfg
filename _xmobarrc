@@ -1,17 +1,15 @@
-Config { font = "xft:Inconsolata-14-regular"
-       , bgColor = "black"
+Config { font = "xft:Inconsolata:pixelsize=16"
+       , bgColor = "#3f3f3f"
        , fgColor = "grey"
+       --, border = NoBorder
+       --, borderColor = "black"  -- irrelevant, but suppress annoying warning when testing
        , position = TopW L 90
-       , commands = [ Run Weather "LRBS" ["-t"," <tempC>C","-L","10","-H","28","--normal","green","--high","red","--low","lightblue"] 3600
-                    , Run MultiCpu ["-t","<total0>,<total1>","-L","5","-H","50","--normal","green","--high","red"] 10
-                    , Run Network "eth0" ["-t","<dev>: R<rx> T<tx>"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Date "%a %b %_d %l:%M" "date" 10
+       , commands = [
+                      Run Date "%_d %b %k:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %eth0% | %multicpu% | %memory% | %swap% | <fc=#ee9a00>%date%</fc> | %LRBS%"
+       , template = "%StdinReader% }{ <fc=#dca3a3>%date%</fc>"
        , lowerOnStart = False
        }
