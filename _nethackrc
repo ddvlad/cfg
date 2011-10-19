@@ -5,7 +5,7 @@
 
 # btw, nethack is retarded for not properly recognising comments.
 
-OPTIONS=number_pad:2
+#OPTIONS=number_pad:2
 
 # I haven't found a GUI to please me yet
 OPTIONS=windowtype:tty
