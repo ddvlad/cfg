@@ -49,12 +49,8 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-parse_git_branch() {
-	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\/\1/'
-}
-
 if [ "$color_prompt" = yes ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w\[\033[32m\]$(parse_git_branch) \[\033[00m\]\$ '
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;34m\]\w \[\033[00m\]\$ '
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h \w$(parse_git_branch)\$ '
 fi
@@ -111,8 +107,6 @@ function gen-cscope
 # Required for vim zenburn colorscheme
 export TERM=xterm-256color
 
-export CDPATH="~/school/"
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -120,8 +114,48 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=~/bin:$PATH
+#export PATH=~/bin:~/.cabal/bin:$PATH
 
 # Change dir to home; I keep getting bitten by gnome-terminal trying to open a
 # new tab in the same directory as the old one.
 cd $HOME
+
+# Idea and colors based on
+# http://tldp.org/HOWTO/Bash-Prompt-HOWTO/saving-complex-prompts.html
+function myps1 {
+	local WHITE="\[\033[1;37m\]"
+	local LIGHT_BLUE="\[\033[1;34m\]"
+	local YELLOW="\[\033[1;33m\]"
+	local NO_COLOUR="\[\033[0m\]"
+
+	case $TERM in
+		xterm*|rxvt*)
+			TITLEBAR='\[\033]0;\u@\h:\w\007\]'
+			;;
+		*)
+			TITLEBAR=""
+			;;
+	esac
+
+	PS1="$TITLEBAR\
+$WHITE\u@\h \
+$LIGHT_BLUE\w \
+$YELLOW("'`ls -1 | wc -l`'" files)\
+$LIGHT_BLUE"'`__git_ps1`'"\
+${YELLOW}"'`j=$(jobs | wc -l); test $j -gt 0 && echo -n " (jobs: $j)"`'"
+${LIGHT_BLUE}\$ \
+$NO_COLOUR"
+}
+
+myps1
+
+export EDITOR=vim
+
+function cpv() {
+	if ! test $# -eq 1 -o $# -eq 2; then
+		echo "wrong number of arguments: cpv src [dst]"
+		return 1
+	fi
+	test -z "$2" && dst=. || dst="$2"
+	pv < "$1" > "$dst/$(basename $1)"
+}
