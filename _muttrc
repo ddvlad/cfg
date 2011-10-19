@@ -1,66 +1,61 @@
-# Basics
-set realname = "Vlad Dogaru"
+# Basic
 set from = "ddvlad@rosedu.org"
+set realname = "Vlad Dogaru"
 set use_from = yes
-set envelope_from = yes
-
-# Use IMAP, not local
-# Ripped off from <http://mutt.sourceforge.net/imap/>
-#set spoolfile = imaps://swarm.cs.pub.ro/INBOX
-#set folder = imaps://swarm.cs.pub.ro/INBOX
-#
-set timeout = 60
-set mail_check = 60
-#set imap_check_subscribed = yes
-#set imap_user = ddvlad
+set use_envelope_from = yes
 
 set mbox_type = Maildir
-set folder = $HOME/Mail/rosedu
+set mbox = "=archive"
+set folder = ~/Mail/gmail
 set spoolfile = "=INBOX"
-mailboxes =INBOX =linux =hadoop =archive =Sent =Drafts =Spam =mu-search
-set sendmail = "msmtp-enqueue.sh -a swarm.cs.pub.ro"
-set send_charset="us-ascii:utf-8"
+set postponed = "=drafts"
 
-set record = =Sent
-set postponed = =Drafts
-set query_command = "lbdbq '%s'"
+# GMail handles copying messages sent through its SMTP gateway.
+set copy = no
 
-# Mairix search:
-macro index,pager "<esc>s" "<shell-escape>mu find --clearlinks --linksdir ~/Mail/rosedu/mu-search --maildir ~/Mail " "run a mu search"
-macro index,pager "S" "<change-folder-readonly>=mu-search\n" "switch to mu results folder"
-macro index,pager "i" "<change-folder>=INBOX\n" "back to inbox"
+set sendmail = /usr/bin/msmtp
+set send_charset = "utf-8"
 
-# use 'a' to archive the message
-macro index,pager a "s=archive<enter>"
-set confirmappend = no
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
 
-# Other email addresses of mine
-alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , ddvlad@gmail\.com
+mailboxes =INBOX =spam =kernel-janitors =netdev
+
+macro index,pager d "<save-message>=trash<enter>"	"move to trash"
+macro index,pager S "<save-message>=spam<enter>"	"mark as spam"
+
+macro index,pager i "<change-folder> =INBOX<enter>"	"go to inbox"
+macro index,pager zi "<change-folder> =INBOX<enter>"	"go to inbox"
+macro index,pager za "<change-folder> =archive<enter>"	"go to archive"
+macro index,pager zs "<change-folder> =sent<enter>"	"go to sent"
+
+macro index,pager a "<save-message>=archive<enter>"	"archive"
+
+set mail_check = 0		# copy-pasta'd, not sure why
+unset move
+set delete
+unset confirmappend
+set quit
+unset mark_old
+
+set sort = threads
+set sort_aux = last-date-received
+set sort_re
+
+set pager_index_lines = 8
+set pager_context = 2		# keep 2 lines when page down-ing
+unset mime_forward
+set forward_format = "Fwd: %s"
+set include
+set forward_quote
+
+alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , \
+	ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , \
+	ddvlad@gmail\.com
 
 color index brightyellow red ~F
-color header brightred black "^subject: *"
-
-set nomark_old
 set wrap = 100
 set nomarkers
-set include=yes
-set pager_index_lines=7
 
-# GPG-specific. Ripped off from <http://codesorcery.net/old/mutt/mutt-gnupg-howto>
-set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
-set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
-set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
-set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
-set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
-set pgp_import_command="gpg --no-verbose --import -v %f"
-set pgp_export_command="gpg --no-verbose --export --armor %r"
-set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
-set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
-set pgp_autosign=no
-set pgp_sign_as=0xB1DF4A94
-set pgp_replyencrypt=yes
-set pgp_timeout=1800
-set pgp_good_sign="^gpg: Good signature from"
-
-set header_cache=~/.muttcache
+set query_command = "goobook query %s"
