@@ -21,7 +21,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -127,6 +127,9 @@ function myps1 {
 	local LIGHT_BLUE="\[\033[1;34m\]"
 	local YELLOW="\[\033[1;33m\]"
 	local NO_COLOUR="\[\033[0m\]"
+	local RED="\[\033[1;31m\]"
+	local prompt_color=$WHITE
+	[ $UID -eq 0 ] && prompt_color=$RED
 
 	case $TERM in
 		xterm*|rxvt*)
@@ -138,7 +141,7 @@ function myps1 {
 	esac
 
 	PS1="$TITLEBAR\
-$WHITE\u@\h \
+$prompt_color\u@\h \
 $LIGHT_BLUE\w \
 $YELLOW("'`ls -1 | wc -l`'" files)\
 $LIGHT_BLUE"'`__git_ps1`'"\
