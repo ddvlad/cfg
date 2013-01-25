@@ -42,9 +42,6 @@ set statusline=%<%f\ %y%h%m%r%=%-24.(0x%02B,%l/%L,%c%V%)\ %P
 set laststatus=2
 set wildmenu
 
-" quick fixing
-nnoremap <Tab> :cnext<Cr>
-nnoremap <S-Tab> :cprev<Cr>
 " /ripoff
 
 " Ripped off from Cosmin Ratiu, on SO list; 30 Jun 2009
@@ -111,3 +108,20 @@ set splitright
 
 set hidden
 set smartcase
+
+syntax on
+
+nnoremap <Tab> <C-W>w
+nnoremap <F9> :cope<CR>
+nnoremap <S-F9> :ccl<CR>
+
+nnoremap <F1> 1gt
+nnoremap <F2> 2gt
+nnoremap <F3> 3gt
+nnoremap <F4> 4gt
+
+nnoremap <F5> :cp<CR>
+nnoremap <F6> :cn<CR>
+
+" Align subsequent lines to open parantheses in C sources.  Via andradaq.
+set cinoptions=(0,W4
