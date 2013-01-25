@@ -30,6 +30,8 @@ autocmd BufRead,BufNewFile *.cl setlocal ft=cool
 autocmd BufRead,BufNewFile *.miC setlocal ft=C
 autocmd BufRead,BufNewFile *.g setlocal ft=antlr
 autocmd BufRead,BufNewFile *.rkt setlocal ft=scheme
+autocmd BufRead,BufNewFile SConstruct* setlocal ft=python tw=0
+autocmd BufRead,BufNewFile SConscript* setlocal ft=python tw=0
 
 set autowrite
 
