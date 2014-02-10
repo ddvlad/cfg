@@ -162,3 +162,8 @@ function cpv() {
 	test -z "$2" && dst=. || dst="$2"
 	pv < "$1" > "$dst/$(basename $1)"
 }
+
+[ -f $HOME/.bash_ixia ] && source $HOME/.bash_ixia
+alias ls='ls --color=auto'
+alias grep=ack-grep
+alias v='vi -R -'
