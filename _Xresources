@@ -1,14 +1,17 @@
 xterm*metaSendsEscape: true
 xterm*font: -*-fixed-medium-*-*-*-18-*-*-*-*-*-*-*
 
-urxvt.font: xft:Inconsolata:pixelsize=16
-urxvt.scrollBar: off
+!urxvt.font: xft:Inconsolata:pixelsize=16
+urxvt.font: xft:DejaVu Sans Mono:regular:pixelsize=14:autohint=true
+urxvt.boldfont: xft:DejaVu Sans Mono:bold:pixelsize=14:autohint=true
+urxvt.italicFont: xft:DejaVu Sans Mono:italic:pixelsize=14:autohint=true
+urxvt.boldItalicFont: xft:DejaVu Sans Mono:bold:italic:pixelsize=14:autohint=true
 
 Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintfull
 
-urxvt*termName:          xterm-256color
+urxvt*termName:          rxvt-256color
 urxvt*loginShell:        true
 urxvt*scrollBar:         false
 urxvt*secondaryScroll:   true
