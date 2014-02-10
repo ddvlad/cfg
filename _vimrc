@@ -125,3 +125,16 @@ nnoremap <F6> :cn<CR>
 
 " Align subsequent lines to open parantheses in C sources.  Via andradaq.
 set cinoptions=(0,W4
+
+" Restore position inside previously opened file.  From vim.wikia.
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
