@@ -1,0 +1,30 @@
+# Basic
+set from = "TODO"
+set realname = "Vlad Dogaru"
+set use_from = yes
+set use_envelope_from = yes
+
+set header_cache = ~/.mutt/cache/work/headers
+set message_cachedir = ~/.mutt/cache/work/bodies
+
+set mbox_type = Maildir
+set folder = "~/Mail"
+set spoolfile = "=INBOX"
+mailboxes =INBOX =INBOX.tko =INBOX.spam =INBOX.code-review =INBOX.y1 =INBOX.y2
+
+set record = "=Sent\ Items"
+set postponed = "=Drafts"
+set sendmail = msmtp
+set query_command = "lbdbq '%s'"  # Needs lbdb config
+
+set sort = threads
+set sort_aux = last-date-received
+set pager_index_lines = 6
+unset mark_old
+unset confirmappend
+
+source /home/vlad/src/cfg/mutt_zenburn
+
+macro index,pager i "<change-folder> =INBOX<enter>" "go to inbox"
+alternative_order text/plain text/html
+auto_view text/html
