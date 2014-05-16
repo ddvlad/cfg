@@ -20,6 +20,8 @@ autocmd FileType creole		setlocal tw=0 fo=t wrap nolist linebreak
 autocmd FileType creole		so ~/.vim/creole-abbrevs.vim
 autocmd FileType mail		setlocal tw=72 fo=tql
 autocmd FileType lua		setlocal sts=4 sw=4 ai et
+autocmd FileType rust		setlocal cin
+autocmd FileType sh		setlocal sts=4 sw=4 si et
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
