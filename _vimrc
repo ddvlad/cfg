@@ -109,6 +109,7 @@ set splitright
 
 set hidden
 set smartcase
+set ignorecase
 
 syntax on
 
