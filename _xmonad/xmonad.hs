@@ -63,6 +63,8 @@ myConfig = defaultConfig
         -- TODO find a better use for this?
         , ((0, xF86XK_Launch1), spawn myTerminal)
         , ((modm, xK_p), spawn "dmenu_run")
+        , ((mod1Mask .|. controlMask, xK_l), spawn "xscreensaver-command -lock")
+        , ((mod1Mask .|. modm, xK_l), spawn "xscreensaver-command -lock")
         -- Such a simple task, and such an arcane way to configure it.
         -- Stolen from XMonad/Config.hs.
         , ((modm, xK_0), windows $ W.greedyView "0:irc")
