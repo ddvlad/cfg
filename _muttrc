@@ -1,36 +1,33 @@
+# vim:set ft=muttrc:
 # Basic
-set from = "ddvlad@rosedu.org"
+set from = "ddvlad@herebedragons.ro"
 set realname = "Vlad Dogaru"
 set use_from = yes
 set use_envelope_from = yes
 
 set mbox_type = Maildir
-set mbox = "=archive"
-set folder = ~/Mail/gmail
+set mbox = "=2014"
+set folder = ~/hbd
 set spoolfile = "=INBOX"
 set postponed = "=drafts"
 
-# GMail handles copying messages sent through its SMTP gateway.
-set copy = no
+set copy = yes
+set record = "=sent"
+set metoo = no		# Remove my addresses when replying to all.
 
-set sendmail = /usr/bin/msmtp
+set sendmail = "/usr/bin/msmtp -a hbd"
 set send_charset = "utf-8"
 
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
+set header_cache = ~/.mutt/cache/hbd/headers
+set message_cachedir = ~/.mutt/cache/hbd/bodies
 set certificate_file = ~/.mutt/certificates
 
-mailboxes =INBOX =spam =kernel-janitors =netdev
-
-macro index,pager d "<save-message>=trash<enter>"	"move to trash"
-macro index,pager S "<save-message>=spam<enter>"	"mark as spam"
+mailboxes =INBOX =rosedu =school =git =netdev =kernel =2014
 
 macro index,pager i "<change-folder> =INBOX<enter>"	"go to inbox"
 macro index,pager zi "<change-folder> =INBOX<enter>"	"go to inbox"
-macro index,pager za "<change-folder> =archive<enter>"	"go to archive"
+macro index,pager za "<change-folder> =2014<enter>"	"go to archive"
 macro index,pager zs "<change-folder> =sent<enter>"	"go to sent"
-
-macro index,pager a "<save-message>=archive<enter>"	"archive"
 
 set mail_check = 0		# copy-pasta'd, not sure why
 unset move
@@ -50,12 +47,17 @@ set forward_format = "Fwd: %s"
 set include
 set forward_quote
 
-alternates vlad\.dogaru@lpic\.ro , ddvlad@swarm\.cs\.pub\.ro , \
-	ddvlad@anaconda\.cs\.pub\.ro , vlad\.dogaru@cs\.pub\.ro , \
-	ddvlad@gmail\.com
+alternates vlad.dogaru@lpic.ro ddvlad@swarm.cs.pub.ro \
+	ddvlad@anaconda.cs.pub.ro vlad.dogaru@cs.pub.ro \
+	ddvlad@gmail.com ddvlad@rosedu.org
 
-color index brightyellow red ~F
 set wrap = 100
 set nomarkers
 
 set query_command = "goobook query %s"
+
+source /home/vlad/src/cfg/mutt_zenburn
+color header color174 color237 "^Subject"
+
+alternative_order text/plain text/html
+auto_view text/html
