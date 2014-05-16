@@ -20,13 +20,8 @@ import Graphics.X11.ExtraTypes.XF86 -- for XK_Launch1
 
 myManageHook = composeAll
     [ className =? "Gimp"     --> doFloat
+    , className =? "vncviewer"  --> doFloat
     , isFullscreen --> doFullFloat
-
-    , className =? "Firefox"  --> doShift "web"
-    , stringProperty "WM_WINDOW_ROLE" =? "Mutt"     --> doShift "mail"
-    , className =? "Xchat"    --> doShift "comm"
-    , className =? "Pidgin"   --> doShift "comm"
-    , className =? "Gvim"     --> doShift "vi"
     ]
 
 modm = mod4Mask
