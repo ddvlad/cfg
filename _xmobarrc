@@ -5,7 +5,7 @@ Config { font = "xft:Inconsolata:pixelsize=16"
        --, borderColor = "black"  -- irrelevant, but suppress annoying warning when testing
        , position = TopW L 90
        , commands = [
-                      Run Date "%_d %b %k:%M" "date" 10
+                      Run Date "%a %_d %b %k:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
