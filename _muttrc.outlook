@@ -23,7 +23,7 @@ set pager_index_lines = 6
 unset mark_old
 unset confirmappend
 
-source /home/vlad/src/cfg/mutt_zenburn
+source .muttrc.zenburn
 
 macro index,pager i "<change-folder> =INBOX<enter>" "go to inbox"
 alternative_order text/plain text/html
