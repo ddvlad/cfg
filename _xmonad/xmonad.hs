@@ -18,6 +18,8 @@ import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import Graphics.X11.ExtraTypes.XF86 -- for XK_Launch1
 
+import qualified XMonad.StackSet as W
+
 myManageHook = composeAll
     [ className =? "Gimp"     --> doFloat
     , className =? "vncviewer"  --> doFloat
@@ -61,6 +63,9 @@ myConfig = defaultConfig
         -- TODO find a better use for this?
         , ((0, xF86XK_Launch1), spawn myTerminal)
         , ((modm, xK_p), spawn "dmenu_run")
+        -- Such a simple task, and such an arcane way to configure it.
+        -- Stolen from XMonad/Config.hs.
+        , ((modm, xK_0), windows $ W.greedyView "0:irc")
         ]
 
 main = do
