@@ -35,8 +35,8 @@ myConfig = defaultConfig
             Tall 1 (5/100) (1/2) |||
             Mirror (Tall 1 (5/100) (1/2)) |||
             named "Tabbed" simpleTabbed
-        , workspaces = [ "web", "mail", "vi", "term", "comm" ] ++
-            map show [6..9]
+        , workspaces = [ "1:web", "2:term1", "3:term2", "4:vnc1", "5:vnc2" ] ++
+            map show [6..8] ++ [ "9:mail", "0:irc" ]
         , modMask = modm
         , terminal = myTerminal
         , normalBorderColor = "#1e2320"
