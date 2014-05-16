@@ -18,10 +18,6 @@ eval `ssh-agent -s`
 
 # Fire up apps
 pidgin &
-firefox &
-.xmonad/actions/mutt.sh &
-gvim &
-xchat &
 
 if [ -x /usr/bin/nm-applet ]; then
 	nm-applet --sm-disable &
@@ -37,4 +33,8 @@ if [ -x /usr/bin/bluetooth-applet ]; then
 	bluetooth-applet &
 fi
 
-exec xmonad
+xscreensaver -no-splash &
+notification-daemon &
+gnome-sound-applet &
+
+exec ck-launch-session xmonad
