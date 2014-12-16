@@ -36,5 +36,6 @@ fi
 xscreensaver -no-splash &
 notification-daemon &
 gnome-sound-applet &
+dropbox start &
 
 exec ck-launch-session xmonad
