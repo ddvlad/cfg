@@ -56,7 +56,7 @@ set nomarkers
 
 set query_command = "goobook query %s"
 
-source .muttrc.zenburn
+source ~/.muttrc.zenburn
 color header color174 color237 "^Subject"
 
 alternative_order text/plain text/html
