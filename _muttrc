@@ -19,6 +19,8 @@ set sendmail = "/usr/bin/msmtp -a hbd"
 set send_charset = "utf-8"
 
 bind index,pager F flag-message # Debian NNTP patch overrides this.
+macro index B '<enter-command>toggle sidebar_visible<enter>'
+macro pager B '<enter-command>toggle sidebar_visible<enter>'
 
 set header_cache = ~/.mutt/cache/hbd/headers
 set message_cachedir = ~/.mutt/cache/hbd/bodies
