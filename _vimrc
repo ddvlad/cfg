@@ -104,6 +104,10 @@ vmap <Space> <PageDown>
 " Highlight current line
 set cursorline
 
+" Disable the background color erase; makes the text background the same as
+" the terminal background
+set t_ut=
+
 " Open new vertical splits to the right of current one.
 set splitright
 
