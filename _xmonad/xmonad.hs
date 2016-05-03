@@ -27,7 +27,7 @@ myManageHook = composeAll
     ]
 
 modm = mod4Mask
-myTerminal = "gnome-terminal"
+myTerminal = "mate-terminal"
 
 myConfig = defaultConfig
         { manageHook = manageDocks <+> myManageHook

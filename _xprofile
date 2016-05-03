@@ -1,0 +1,33 @@
+# Load resources
+xrdb -merge .Xresources
+
+# Set the background color
+xsetroot -solid \#3f3f3f
+
+xsetroot -cursor_name left_ptr
+#setxkbmap -layout ro
+
+# Set up an icon tray
+trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+  --expand true --width 10 --transparent true --alpha 0 --height 24 \
+  --tint 0x3f3f3f &
+
+eval `ssh-agent -s`
+
+# Fire up apps
+pidgin &
+nm-applet --sm-disable &
+mate-power-manager &
+xscreensaver -no-splash &
+notification-daemon &
+gnome-sound-applet &
+dropbox start &
+
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation" 1
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Button" 2
+xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Timeout" 200
+
+# Moved further down since it doesn't seem to work.
+xset -b # Disable PC speaker beep.
+
+xrdb -merge .Xresources

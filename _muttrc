@@ -6,8 +6,8 @@ set use_from = yes
 set use_envelope_from = yes
 
 set mbox_type = Maildir
-set mbox = "=2014"
-set folder = ~/hbd
+set mbox = "=2016"
+set folder = ~/mail/hbd
 set spoolfile = "=INBOX"
 set postponed = "=drafts"
 
@@ -26,12 +26,13 @@ set header_cache = ~/.mutt/cache/hbd/headers
 set message_cachedir = ~/.mutt/cache/hbd/bodies
 set certificate_file = ~/.mutt/certificates
 
-mailboxes =INBOX =rosedu =school =git =netdev =kernel =2014
+mailboxes =INBOX =rosedu =school =git =netdev =kernel =2016
 
 macro index,pager i "<change-folder> =INBOX<enter>"	"go to inbox"
 macro index,pager zi "<change-folder> =INBOX<enter>"	"go to inbox"
-macro index,pager za "<change-folder> =2014<enter>"	"go to archive"
+macro index,pager za "<change-folder> =2016<enter>"	"go to archive"
 macro index,pager zs "<change-folder> =sent<enter>"	"go to sent"
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 set mail_check = 0		# copy-pasta'd, not sure why
 unset move
@@ -65,3 +66,10 @@ color header color174 color237 "^Subject"
 
 alternative_order text/plain text/html
 auto_view text/html
+
+ignore *
+unignore From
+unignore To
+unignore Subject
+unignore Date
+unignore User-Agent
