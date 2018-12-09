@@ -87,7 +87,6 @@ alias l='ls -CF'
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-alias df="pydf"
 alias go="xdg-open"
 alias todo="vi ~/.todo/todo.txt"
 
@@ -144,7 +143,6 @@ function myps1 {
 $prompt_color\u@\h \
 $LIGHT_BLUE\w \
 $YELLOW("'`ls -1 | wc -l`'" files)\
-$LIGHT_BLUE"'`__git_ps1`'"\
 ${YELLOW}"'`j=$(jobs | wc -l); test $j -gt 0 && echo -n " (jobs: $j)"`'"
 ${LIGHT_BLUE}\$ \
 $NO_COLOUR"
@@ -165,5 +163,5 @@ function cpv() {
 
 [ -f $HOME/.bash_ixia ] && source $HOME/.bash_ixia
 alias ls='ls --color=auto'
-alias grep=ack-grep
+alias agrep=ack-grep
 alias v='vi -R -'

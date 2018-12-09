@@ -1,6 +1,7 @@
 term xterm-256color
 bind ',' prev
 bind '.' next
+termcapinfo xterm* ti@:te@
 #change the hardstatus settings to give an window list at the bottom of the
 #screen, with the time and date and with the current window highlighted
 hardstatus alwayslastline
