@@ -90,11 +90,6 @@ alias l='ls -CF'
 alias go="xdg-open"
 alias todo="vi ~/.todo/todo.txt"
 
-# SSH stuff
-alias sshs='ssh ddvlad@swarm.cs.pub.ro'
-alias sshrs='ssh root@swarm.cs.pub.ro'
-alias sshe='ssh so@elf.cs.pub.ro'
-
 alias notify='notify-send "Job done!"'
 
 # Ripped off from Cosmin Ratiu, un SO list; added 30 Jun 2009
@@ -112,12 +107,6 @@ export TERM=xterm-256color
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-#export PATH=~/bin:~/.cabal/bin:$PATH
-
-# Change dir to home; I keep getting bitten by gnome-terminal trying to open a
-# new tab in the same directory as the old one.
-cd $HOME
 
 # Idea and colors based on
 # http://tldp.org/HOWTO/Bash-Prompt-HOWTO/saving-complex-prompts.html
@@ -161,7 +150,5 @@ function cpv() {
 	pv < "$1" > "$dst/$(basename $1)"
 }
 
-[ -f $HOME/.bash_ixia ] && source $HOME/.bash_ixia
-alias ls='ls --color=auto'
-alias agrep=ack-grep
+alias agrep=ack
 alias v='vi -R -'
