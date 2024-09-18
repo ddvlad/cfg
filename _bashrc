@@ -152,3 +152,7 @@ function cpv() {
 
 alias agrep=ack
 alias v='vi -R -'
+
+# Created by `pipx` on 2024-09-18 13:57:42
+export PATH="$PATH:/home/ddvlad/.local/bin"
+eval "$(register-python-argcomplete pipx)"
