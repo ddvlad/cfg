@@ -120,10 +120,10 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
+-- {{{ Wibar
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
 
--- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
 
@@ -588,8 +588,6 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
-awful.util.spawn_with_shell("xscreensaver -no-splash")
 -- }}}
 
 -- {{{ Visual customizations
@@ -598,6 +596,11 @@ beautiful.notification_font = "sans 20"
 naughty.config.defaults.timeout = 0
 naughty.config.defaults.position = "top_middle"
 naughty.config.defaults.fg = beautiful.fg_urgent
+-- }}}
+
+-- {{{ Startup programs
+awful.util.spawn_with_shell("xscreensaver -no-splash")
+awful.util.spawn_with_shell("run_once.sh solaar --window=hide")
 -- }}}
 
 -- vim:set fdm=marker:
