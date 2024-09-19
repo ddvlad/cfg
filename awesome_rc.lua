@@ -592,4 +592,12 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.util.spawn_with_shell("xscreensaver -no-splash")
 -- }}}
 
+-- {{{ Visual customizations
+-- Make notifications more visible and eternal.
+beautiful.notification_font = "sans 20"
+naughty.config.defaults.timeout = 0
+naughty.config.defaults.position = "top_middle"
+naughty.config.defaults.fg = beautiful.fg_urgent
+-- }}}
+
 -- vim:set fdm=marker:
