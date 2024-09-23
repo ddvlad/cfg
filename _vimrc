@@ -22,6 +22,7 @@ autocmd FileType mail		setlocal tw=72 fo=tql
 autocmd FileType lua		setlocal sts=4 sw=4 ai et
 autocmd FileType rust		setlocal cin
 autocmd FileType sh		setlocal sts=4 sw=4 si et
+autocmd FileType beancount	setlocal sts=2 sw=2 si et
 
 " Custom filetypes per extension. Not sure this is the recommended way to do it.
 autocmd BufRead,BufNewFile *.wiki setlocal ft=creole
