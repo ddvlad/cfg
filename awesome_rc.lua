@@ -333,6 +333,37 @@ globalkeys = gears.table.join(
               end,
               {description = "restore minimized", group = "client"}),
 
+    -- Move a client to the next / previous tag.
+    awful.key({ modkey, "Shift" }, "Right",
+              function()
+                    local screen = awful.screen.focused()
+                    local t = screen.selected_tag
+                    if t then
+                        local idx = t.index + 1
+                        if idx == #screen.tags + 1 then idx = 1 end
+                        if client.focus then
+                            client.focus:move_to_tag(screen.tags[idx])
+                            screen.tags[idx]:view_only()
+                        end
+                    end
+                end,
+                {description = "move focused client to next tag and view tag", group = "tag"}),
+
+    awful.key({ modkey, "Shift" }, "Left",
+              function()
+                    local screen = awful.screen.focused()
+                    local t = screen.selected_tag
+                    if t then
+                        local idx = t.index - 1
+                        if idx == 0 then idx = #screen.tags end
+                        if client.focus then
+                            client.focus:move_to_tag(screen.tags[idx])
+                            screen.tags[idx]:view_only()
+                        end
+                    end
+                end,
+                {description = "move focused client to previous tag and view tag", group = "tag"}),
+
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
