@@ -23,6 +23,7 @@ local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -232,6 +233,11 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             -- There's already a keyboard thing in the system tray.
             -- mykeyboardlayout,
+            volume_widget {
+                card = '0',
+                device = 'default',
+                widget_type = 'arc',
+            },
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
@@ -390,7 +396,11 @@ globalkeys = gears.table.join(
 
     -- Screensaver
     awful.key({ "Control", "Mod1" }, "l", function () awful.util.spawn("xscreensaver-command -lock") end,
-              {description = "lock screen", group = "launcher"})
+              {description = "lock screen", group = "launcher"}),
+
+    awful.key({ modkey }, "]", function() volume_widget:inc(5) end),
+    awful.key({ modkey }, "[", function() volume_widget:dec(5) end),
+    awful.key({ modkey }, "\\", function() volume_widget:toggle() end)
 )
 
 clientkeys = gears.table.join(
