@@ -22,6 +22,8 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -233,6 +235,9 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
+            logout_menu_widget {
+                onlock = function() awful.util.spawn("xscreensaver-command -lock") end
+            },
         },
     }
 end)
