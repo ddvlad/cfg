@@ -346,7 +346,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Move a client to the next / previous tag.
-    awful.key({ modkey, "Shift" }, "Right",
+    awful.key({ "Control", "Mod1", "Shift" }, "Right",
               function()
                     local screen = awful.screen.focused()
                     local t = screen.selected_tag
@@ -361,7 +361,7 @@ globalkeys = gears.table.join(
                 end,
                 {description = "move focused client to next tag and view tag", group = "tag"}),
 
-    awful.key({ modkey, "Shift" }, "Left",
+    awful.key({ "Control", "Mod1", "Shift" }, "Left",
               function()
                     local screen = awful.screen.focused()
                     local t = screen.selected_tag
