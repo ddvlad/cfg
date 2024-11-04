@@ -38,7 +38,7 @@ autocmd BufRead,BufNewFile SConscript* setlocal ft=python tw=0
 " This relies on https://github.com/rhysd/vim-clang-format and
 " http://github.com/kana/vim-operator-user
 " Use clang-format to format code when using =.
-autocmd Filetype c,cpp map = <Plug>(operator-clang-format)
+autocmd Filetype c,cpp map <buffer> = <Plug>(operator-clang-format)
 
 set autowrite
 
