@@ -150,3 +150,7 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" The main benefit so far is that bullet points are properly formatted when
+" autoindent is set.
+set autoindent
