@@ -7,3 +7,5 @@
 	default = current
 [core]
 	excludesfile = ~/.gitignore
+[color "diff"]
+	old = brightred
