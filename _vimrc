@@ -11,7 +11,8 @@ imap jj <Esc>
 " Per-filetype settings
 autocmd FileType java		setlocal tw=78 cin foldmethod=marker
 autocmd FileType c,cpp		setlocal tw=72 cindent noexpandtab
-autocmd FileType python		setlocal autoindent expandtab sts=4 sw=4 tw=78
+autocmd FileType python		setlocal autoindent expandtab sts=4 sw=4 tw=100
+autocmd FileType python		setlocal equalprg=autopep8\ --max-line-length=100\ -
 autocmd FileType haskell	setlocal tw=72 sw=2 sts=2 et
 autocmd FileType tex		setlocal tw=72 sw=2 sts=2 ai et
 autocmd FileType tex		so ~/.vim/latex-abbrevs.vim
